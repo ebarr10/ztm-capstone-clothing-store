@@ -1,3 +1,7 @@
+# About the Project
+
+This was original developed in a private folder and then moved to an open repository. This is why there are not many commitments and the project starts with one large push
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
