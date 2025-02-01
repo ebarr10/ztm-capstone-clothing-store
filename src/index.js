@@ -6,9 +6,6 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// import { UserProvider } from "./contexts/user.context";
-// import { CategoriesProvider } from "./contexts/categories.context";
-// import { CartProvider } from "./contexts/cart.context";
 
 import { store, persistor } from "./store/store";
 
@@ -20,13 +17,7 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-          {/* <UserProvider> */}
-          {/* <CategoriesProvider> */}
-          {/* <CartProvider> */}
           <App />
-          {/* </CartProvider> */}
-          {/* </CategoriesProvider> */}
-          {/* </UserProvider> */}
         </BrowserRouter>
       </PersistGate>
     </Provider>
