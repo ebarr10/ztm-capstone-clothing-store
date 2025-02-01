@@ -4,6 +4,8 @@ A built from scratch website develop by following along and understanding many a
 
 https://zerotomastery.io/courses/learn-react/
 
+Note: There is another branch of the changes that is right before converting from context to redux and reducers
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
