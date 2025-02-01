@@ -1,6 +1,10 @@
 # About the Project
 
-This was original developed in a private folder and then moved to an open repository. This is why there are not many commitments and the project starts with one large push
+### This branch is specifically the point right before utilizing redux and reducers
+
+A built from scratch website develop by following along and understanding many aspects of React and Redux as described on the course website below
+
+https://zerotomastery.io/courses/learn-react/
 
 # Getting Started with Create React App
 
