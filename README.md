@@ -1,7 +1,6 @@
 # About the Project
 
 ### This branch is specifically the point right before utilizing redux and reducers
-
 A built from scratch website develop by following along and understanding many aspects of React and Redux as described on the course website below
 
 https://zerotomastery.io/courses/learn-react/
