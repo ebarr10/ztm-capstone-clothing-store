@@ -27,30 +27,39 @@ function Checkout() {
 
   return (
     <CheckoutContainer>
-      <CheckoutHeader>
-        <HeaderBlock>
-          <span>Product</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Description</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Quantity</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Price</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Remove</span>
-        </HeaderBlock>
-      </CheckoutHeader>
-      {cartItems.map((cartItem) => {
-        return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
-      })}
-      <Total>Total: ${cartTotal}</Total>
-      <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={goToPayment}>
-        Go To Payment
-      </Button>
+      {cartTotal > 0 ? (
+        <>
+          <CheckoutHeader>
+            <HeaderBlock>
+              <span>Product</span>
+            </HeaderBlock>
+            <HeaderBlock>
+              <span>Description</span>
+            </HeaderBlock>
+            <HeaderBlock>
+              <span>Quantity</span>
+            </HeaderBlock>
+            <HeaderBlock>
+              <span>Price</span>
+            </HeaderBlock>
+            <HeaderBlock>
+              <span>Remove</span>
+            </HeaderBlock>
+          </CheckoutHeader>
+          {cartItems.map((cartItem) => {
+            return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
+          })}
+          <Total>Total: ${cartTotal}</Total>
+          <Button
+            buttonType={BUTTON_TYPE_CLASSES.inverted}
+            onClick={goToPayment}
+          >
+            Go To Payment
+          </Button>
+        </>
+      ) : (
+        <h2>Cart is Empty</h2>
+      )}
     </CheckoutContainer>
   );
 }
