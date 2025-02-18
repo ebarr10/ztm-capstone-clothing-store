@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { addItemToCart } from "../../store/cart/cart.action";
+import { GlobalBannerContext } from "../../utils/global-banner/global-banner.utils";
+
 import {
   ProductCardContainer,
   Footer,
@@ -14,8 +17,11 @@ function ProductCard({ product }) {
   const cartItems = useSelector(selectCartItems);
   const { name, price, imageUrl } = product;
 
+  const { setGlobalBanner } = useContext(GlobalBannerContext);
+
   function addProductToCart() {
     dispatch(addItemToCart(cartItems, product));
+    setGlobalBanner("Added Item to Cart", "info");
   }
 
   return (

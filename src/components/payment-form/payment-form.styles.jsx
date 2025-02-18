@@ -15,7 +15,18 @@ export const FormContainer = styled.form`
   min-width: 500px;
 `;
 
+export const PaymentButtons = styled.div`
+  display: flex;
+  justify-content: column;
+  align-items: center;
+`;
+
 export const PaymentButton = styled(Button)`
   margin-left: auto;
+  margin-top: 30px;
+`;
+
+export const CheckoutButton = styled(Button)`
+  margin-right: auto;
   margin-top: 30px;
 `;

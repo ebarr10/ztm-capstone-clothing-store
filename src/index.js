@@ -11,6 +11,8 @@ import reportWebVitals from "./reportWebVitals";
 import { store, persistor } from "./store/store";
 import { stripePromise } from "./utils/stripe/stripe.utils";
 
+import { GlobalBannerProvider } from "./utils/global-banner/global-banner.utils";
+
 import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,7 +22,9 @@ root.render(
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <Elements stripe={stripePromise}>
-            <App />
+            <GlobalBannerProvider>
+              <App />
+            </GlobalBannerProvider>
           </Elements>
         </BrowserRouter>
       </PersistGate>

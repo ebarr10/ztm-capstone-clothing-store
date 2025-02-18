@@ -19,10 +19,16 @@ function getButton(buttonType = BUTTON_TYPE_CLASSES.base) {
   }[buttonType];
 }
 
-function Button({ children, buttonType, isLoading, ...otherProps }) {
+function Button({
+  children,
+  buttonType,
+  isLoading,
+  isDisabled,
+  ...otherProps
+}) {
   const CustomButton = getButton(buttonType);
   return (
-    <CustomButton disabled={isLoading} {...otherProps}>
+    <CustomButton disabled={isLoading || isDisabled} {...otherProps}>
       {isLoading ? <ButtonSpinner /> : children}
     </CustomButton>
   );
