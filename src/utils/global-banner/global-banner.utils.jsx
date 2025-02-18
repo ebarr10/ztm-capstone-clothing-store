@@ -13,7 +13,6 @@ export const GlobalBannerProvider = React.memo(({ children }) => {
   const [bannerType, setBnnerType] = useState(false);
 
   function setGlobalBanner(text, type) {
-    console.log("Setting Global Banner: ", text, type);
     setBannerText(text);
     setBnnerType(type);
     setIsVisible(true);
