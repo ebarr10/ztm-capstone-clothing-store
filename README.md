@@ -4,7 +4,7 @@ A built from scratch website develop by following along and understanding many a
 
 https://zerotomastery.io/courses/learn-react/
 
-Note: There is another branch of the changes that is right before converting from context to redux and reducers
+Note: There are other branches that contain certain snapshots of the code including when it was only using context, utilizing thunks, etc
 
 # Getting Started with Create React App
 
