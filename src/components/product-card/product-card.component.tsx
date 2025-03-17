@@ -11,8 +11,13 @@ import {
   Price,
 } from "./product-card.styles";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import { CategoryItem } from "../../store/categories/category.types";
 
-function ProductCard({ product }) {
+type ProductCardProps = {
+  product: CategoryItem;
+};
+
+function ProductCard({ product }: ProductCardProps) {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const { name, price, imageUrl } = product;
