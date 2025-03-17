@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { FormEvent, useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { GlobalBannerContext } from "../../utils/global-banner/global-banner.utils";
@@ -22,6 +22,7 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { Spinner } from "../spinner/spinner.component";
 
+import { StripeElementsOptionsMode } from "@stripe/stripe-js";
 import {
   CheckoutButton,
   FormContainer,
@@ -54,7 +55,7 @@ export default function PaymentPage() {
     return <Spinner />;
   }
 
-  const options = {
+  const options: StripeElementsOptionsMode = {
     mode: "payment",
     currency: "usd",
     amount: amount > 0 ? amount : 1,
@@ -67,7 +68,12 @@ export default function PaymentPage() {
   );
 }
 
-function PaymentForm({ clientSecret, amount }) {
+type PaymentProps = {
+  clientSecret: string;
+  amount: number;
+};
+
+function PaymentForm({ clientSecret, amount }: PaymentProps) {
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
@@ -82,7 +88,7 @@ function PaymentForm({ clientSecret, amount }) {
     navigate("/checkout");
   }
 
-  async function paymentHandler(e) {
+  async function paymentHandler(e: FormEvent<HTMLDivElement>) {
     e.preventDefault();
 
     if (!stripe || !elements) return;
@@ -112,7 +118,7 @@ function PaymentForm({ clientSecret, amount }) {
       redirect: "if_required",
     });
 
-    if (paymentIntent.status === "succeeded") {
+    if (paymentIntent?.status === "succeeded") {
       setGlobalBanner("Order Successful", "success");
       dispatch(clearAllItemsInCart());
       navigate("/");
