@@ -5,7 +5,9 @@ import {
   SuccessBanner,
 } from "./global-banner.styles";
 
-export const GlobalBannerContext = createContext({});
+export const GlobalBannerContext = createContext({
+  setGlobalBanner: (text: string, type: string) => {},
+});
 
 type GlobalBannerProviderProps = {
   children: ReactNode;
