@@ -10,8 +10,14 @@ import ProductCard from "../../components/product-card/product-card.component";
 import { Spinner } from "../../components/spinner/spinner.component";
 import { CategoryContainer, CategoryTitle } from "./category.styles";
 
+type CategoryRouteParams = {
+  category: string;
+};
+
 function Category() {
-  const { category } = useParams();
+  const { category } = useParams<
+    keyof CategoryRouteParams
+  >() as CategoryRouteParams;
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
