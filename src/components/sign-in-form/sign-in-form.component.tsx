@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
@@ -23,13 +23,17 @@ function SignInForm() {
     setFormFields(defaultFormFields);
   }
 
-  async function handleSubmit(event) {
+  type SubmitError = Error & {
+    code: string;
+  };
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
-      switch (error.code) {
+      switch ((error as SubmitError).code) {
         case "auth/wrong-password":
           alert("Incorrect password for email");
           break;
@@ -46,7 +50,7 @@ function SignInForm() {
     dispatch(googleSignInStart());
   }
 
-  function handleChange(event) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   }
