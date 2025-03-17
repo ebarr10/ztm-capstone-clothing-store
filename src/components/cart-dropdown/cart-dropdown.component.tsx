@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../store/cart/cart.action";
-import CartItem from "../cart-item/cart-item.component";
+import CartItemDisplay from "../cart-item/cart-item.component";
 
 import Button from "../button/button.component";
 import {
@@ -26,7 +26,7 @@ function CartDropdown() {
       <CartItems>
         {cartItems.length ? (
           cartItems.map((cartItem) => (
-            <CartItem key={cartItem.id} cartItem={cartItem} />
+            <CartItemDisplay key={cartItem.id} cartItem={cartItem} />
           ))
         ) : (
           <EmptyMessage>Your cart is empty</EmptyMessage>
