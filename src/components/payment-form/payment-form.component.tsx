@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -84,9 +84,9 @@ function PaymentForm({ clientSecret, amount }: PaymentProps) {
 
   const [isProcesingPayment, setIsProcesingPayment] = useState(false);
 
-  function goToCheckout() {
+  const goToCheckout = useCallback(() => {
     navigate("/checkout");
-  }
+  }, []);
 
   async function paymentHandler(e: FormEvent<HTMLDivElement>) {
     e.preventDefault();
