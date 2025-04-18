@@ -13,6 +13,8 @@ import { stripePromise } from "./utils/stripe/stripe.utils";
 
 import { GlobalBannerProvider } from "./utils/global-banner/global-banner.utils";
 
+import * as serviceworkerRegistration from "./serviceWorkerRegistration";
+
 import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -31,6 +33,8 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+
+serviceworkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
