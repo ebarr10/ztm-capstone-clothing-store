@@ -15,8 +15,6 @@ import { GlobalBannerProvider } from "./utils/global-banner/global-banner.utils"
 
 import * as serviceworkerRegistration from "./serviceWorkerRegistration";
 
-import "./index.scss";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

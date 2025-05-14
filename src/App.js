@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { checkUserSession } from "./store/user/user.action";
 import { Spinner } from "./components/spinner/spinner.component";
+import { GlobalStyle } from "./global.styles";
 
 // React will not render until it actually fetches this (going to this page) --> reduces the bundle.js size due to code splitting and dynamic imports
 // Went from 854 kB --> 302 B
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />

@@ -35,6 +35,10 @@ export const InfoBanner = styled.div`
   border-radius: 10px;
   background: rgb(24, 155, 255);
   animation: ${slideInOut} 2.8s ease-in-out forwards;
+
+  @media screen and (max-width: 800px) {
+    width: 100vw;
+  }
 `;
 
 export const SuccessBanner = styled(InfoBanner)`
